@@ -9,7 +9,7 @@
     --container-normal: 1100px;
     --container-wide: 1400px;
     --container-narrow: 900px;
-    --dark-color:#333;
+    --dark-color: #333;
 }
 
 body {
@@ -36,12 +36,12 @@ img {
     color: #333;
 }
 
-.bg-dark{
+.bg-dark {
     background: var(--dark-color);
     color: #fff;
 }
 
-.bg-dark .bg-primary{
+.bg-dark .bg-primary {
     padding: 0 0 0.3rem;
 }
 
@@ -51,7 +51,7 @@ img {
     margin-bottom: 40px;
 }
 
-.visually-hidden{
+.visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     height: 1px;
@@ -61,7 +61,7 @@ img {
     width: 1px;
 }
 
-.btn{
+.btn {
     display: inline-block;
     padding: 1rem 2rem;
     border: 1px solid #333;
@@ -71,7 +71,7 @@ img {
     cursor: pointer;
 }
 
-.btn:hover{
+.btn:hover {
     background: #333;
     color: #fff;
 }
@@ -142,24 +142,37 @@ img {
     font-weight: normal;
 }
 
-.gallery-flex {
-    display: flex;
-    flex-wrap: wrap;
+/* Gallery */
+
+.gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
     gap: 20px;
-    justify-content: center;
 }
 
 .gallery-item {
-    width: calc(33.333% - 20px);
+
     border-radius: 10px;
 }
 
 .gallery-item img {
     border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .gallery-item:hover {
     opacity: 0.9;
+}
+
+.gallery-item:nth-of-type(2){
+    grid-column: span 2;
+}
+
+.gallery-item:nth-of-type(7){
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
 /* footer */
@@ -221,20 +234,21 @@ img {
 }
 
 /* Contact */
-.contact{
+.contact {
     padding: 3rem 0 4rem;
 }
 
-.contact p{
+.contact p {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.form-group{
-    margin: 2rem 0 ;
+.form-group {
+    margin: 2rem 0;
 }
 
-.contact input, .contact textarea{
+.contact input,
+.contact textarea {
     border: none;
     border-bottom: 1px #333 solid;
     width: 100%;
@@ -243,15 +257,16 @@ img {
     padding-bottom: 1rem;
 }
 
-.contact textarea{
+.contact textarea {
     height: 200px;
 }
 
-.contact input:focus, .contact textarea:focus{
+.contact input:focus,
+.contact textarea:focus {
     outline: 0;
 }
 
-.contact button{
+.contact button {
     width: 100%;
 }
 
@@ -259,9 +274,9 @@ img {
 @media(max-width: 768px) {
 
     .header .header-flex,
-    .footer .footer-flex ,
+    .footer .footer-flex,
     .services .services-flex,
-    .team .team-flex{
+    .team .team-flex {
         flex-direction: column;
         gap: 1.5rem;
     }
@@ -274,8 +289,22 @@ img {
         font-size: 1.8rem;
     }
 
-    .gallery-item {
-        width: calc(50% - 20px);
+
+    .gallery-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-item:nth-of-type(1){
+        grid-column: span 2;
+    }
+
+    .gallery-item:nth-of-type(2){
+        grid-column: span 1;
+    }
+
+    .gallery-item:nth-of-type(7){
+        grid-column: span 1;
+        grid-row: span 1;
     }
 
     .footer .footer-flex {
